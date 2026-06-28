@@ -1,0 +1,711 @@
+[
+  {
+    "formula_id": "hangout-casual-relaxed-v1",
+    "version": 1,
+    "occasion_id": "hangout",
+    "vibe_keywords": [
+      "casual",
+      "relaxed"
+    ],
+    "expression": "comfortable",
+    "variants": {
+      "safe": {
+        "variant_id": "safe",
+        "label": {
+          "id": "Look 1 — Aman",
+          "en": "Look 1 — Safe"
+        },
+        "items": [
+          {
+            "category": "top",
+            "description": "Kaos polos katun combed hitam fit santai",
+            "product_query": "kaos polos hitam katun combed 24s",
+            "price_range": {
+              "min": 75000,
+              "max": 150000
+            },
+            "style_notes": "Bahan katun 24s tebal namun tetap adem.",
+            "swap_candidates": [
+              "kaos polos navy combed 24s",
+              "t-shirt hitam relaxed fit"
+            ],
+            "color_group": "black",
+            "silhouette": "regular"
+          },
+          {
+            "category": "bottom",
+            "description": "Celana cargo katun linen krem potongan lurus",
+            "product_query": "celana cargo linen krem straight fit",
+            "price_range": {
+              "min": 150000,
+              "max": 280000
+            },
+            "style_notes": "Potongan lurus memberikan kenyamanan ekstra saat nongkrong.",
+            "swap_candidates": [
+              "celana chino krem straight fit",
+              "celana cargo panjang beige"
+            ],
+            "color_group": "beige",
+            "silhouette": "straight"
+          },
+          {
+            "category": "footwear",
+            "description": "Sneakers kanvas low-top warna hitam putih",
+            "product_query": "sneakers kanvas hitam putih low top",
+            "price_range": {
+              "min": 180000,
+              "max": 350000
+            },
+            "style_notes": "Alas kaki kasual klasik yang cocok dengan segala jenis bawahan.",
+            "swap_candidates": [
+              "sepatu slip on kanvas hitam",
+              "sneakers low top basic"
+            ],
+            "color_group": "black",
+            "silhouette": "regular"
+          },
+          {
+            "category": "accessory",
+            "description": "Tas selempang kanvas hitam minimalis",
+            "product_query": "sling bag kanvas hitam minimalis",
+            "price_range": {
+              "min": 60000,
+              "max": 130000
+            },
+            "style_notes": "Ukuran pas untuk menyimpan handphone dan dompet saat bepergian.",
+            "swap_candidates": [
+              "tote bag kanvas hitam",
+              "shoulder bag kasual"
+            ],
+            "color_group": "black",
+            "silhouette": "regular",
+            "optional": true
+          }
+        ],
+        "styling_rationale": {
+          "color": "Kombinasi hitam dan krem memberikan kontras netral yang bersih dan aman.",
+          "silhouette": "Kaos regular fit dipadukan dengan cargo straight-leg menghasilkan proporsi tubuh yang seimbang dan rileks.",
+          "occasion": "Cocok untuk hangout santai siang hari.",
+          "personal_note": "Perpaduan kaos hitam dan celana cargo linen krem ini menggunakan teknik warna netral agar tampilanmu seimbang dan nyaman dilihat. Bahannya yang ringan dan bersirkulasi udara baik sangat pas untuk cuaca tropis yang hangat. Biar makin berkarakter, gulung sedikit bagian bawah celana dan tambahkan jam tangan kasual."
+        }
+      },
+      "stylish": {
+        "variant_id": "stylish",
+        "label": {
+          "id": "Look 2 — Modis",
+          "en": "Look 2 — Stylish"
+        },
+        "items": [
+          {
+            "category": "top",
+            "description": "Kaos polos putih katun combed relaxed fit",
+            "product_query": "kaos polos putih katun combed relaxed fit",
+            "price_range": {
+              "min": 75000,
+              "max": 150000
+            },
+            "style_notes": "Inner layer yang nyaman untuk ditumpuk dengan luaran.",
+            "swap_candidates": [
+              "kaos singlet putih katun",
+              "t-shirt putih basic"
+            ],
+            "color_group": "white",
+            "silhouette": "regular"
+          },
+          {
+            "category": "outerwear",
+            "description": "Kemeja corduroy hijau olive lengan panjang",
+            "product_query": "kemeja corduroy olive green",
+            "price_range": {
+              "min": 140000,
+              "max": 260000
+            },
+            "style_notes": "Tekstur corduroy memberikan dimensi lebih pada tampilan kasual.",
+            "swap_candidates": [
+              "kemeja flanel hijau",
+              "jaket overshirt olive"
+            ],
+            "color_group": "green",
+            "silhouette": "loose",
+            "optional": true
+          },
+          {
+            "category": "bottom",
+            "description": "Celana loose pants hitam bahan jatuh",
+            "product_query": "celana loose pants hitam relaxed fit",
+            "price_range": {
+              "min": 160000,
+              "max": 300000
+            },
+            "style_notes": "Potongan longgar memberikan kesan santai namun tetap terstruktur.",
+            "swap_candidates": [
+              "celana chino loose hitam",
+              "celana cargo hitam longgar"
+            ],
+            "color_group": "black",
+            "silhouette": "loose"
+          },
+          {
+            "category": "footwear",
+            "description": "Sneakers putih bersih dengan detail abu-abu minimalis",
+            "product_query": "sneakers putih casual pria",
+            "price_range": {
+              "min": 250000,
+              "max": 500000
+            },
+            "style_notes": "Warna putih kontras memperjelas batas antara celana hitam dan sepatu.",
+            "swap_candidates": [
+              "sepatu kets putih retro",
+              "sneakers slip on putih"
+            ],
+            "color_group": "white",
+            "silhouette": "regular"
+          }
+        ],
+        "styling_rationale": {
+          "color": "Kombinasi hijau olive, putih, dan hitam menciptakan harmoni warna bernuansa earthy yang trendi.",
+          "silhouette": "Siluet longgar dari kemeja luar dan celana jatuh memberikan kesan gaya streetwear yang santai namun terencana.",
+          "occasion": "Ideal untuk jalan-jalan di mall, galeri seni, atau kafe ber-AC di akhir pekan.",
+          "personal_note": "Kombinasi kemeja corduroy olive sebagai luaran di atas kaos putih dan celana loose hitam ini menerapkan konsep layering bertekstur agar gayamu tidak membosankan. Siluetnya yang longgar dan santai memberikan ruang gerak bebas sekaligus menjaga tubuh tetap hangat di ruangan ber-AC. Cukup biarkan kemeja tidak dikancingkan dan rapikan kaos bagian dalam dengan dimasukkan ke celana untuk kesan rapi yang instan."
+        }
+      },
+      "bolder": {
+        "variant_id": "bolder",
+        "label": {
+          "id": "Look 3 — Berani",
+          "en": "Look 3 — Bolder"
+        },
+        "items": [
+          {
+            "category": "top",
+            "description": "Kaos singlet hitam bahan katun rib",
+            "product_query": "singlet rib pria hitam premium",
+            "price_range": {
+              "min": 60000,
+              "max": 120000
+            },
+            "style_notes": "Bahan bergaris vertikal tipis, elastis dan pas di badan.",
+            "swap_candidates": [
+              "kaos polos hitam fitted",
+              "tank top katun hitam"
+            ],
+            "color_group": "black",
+            "silhouette": "fitted"
+          },
+          {
+            "category": "outerwear",
+            "description": "Kardigan rajut longgar motif garis hitam putih",
+            "product_query": "cardigan rajut oversize stripe hitam putih",
+            "price_range": {
+              "min": 180000,
+              "max": 350000
+            },
+            "style_notes": "Motif garis tebal memberikan aksen visual yang berani.",
+            "swap_candidates": [
+              "outerwear rajut motif retro",
+              "kardigan hitam rajut kasar"
+            ],
+            "color_group": "multicolor",
+            "silhouette": "oversized",
+            "optional": true
+          },
+          {
+            "category": "bottom",
+            "description": "Celana jeans biru denim potongan lebar cuci medium",
+            "product_query": "celana jeans wide leg biru medium wash",
+            "price_range": {
+              "min": 220000,
+              "max": 420000
+            },
+            "style_notes": "Potongan wide-leg memberi kesan retro perkotaan yang berani.",
+            "swap_candidates": [
+              "celana denim baggy washed",
+              "celana jeans loose fit biru"
+            ],
+            "color_group": "blue",
+            "silhouette": "wide-leg"
+          },
+          {
+            "category": "footwear",
+            "description": "Sepatu slip-on kulit hitam bersol tebal",
+            "product_query": "slip on leather shoes platform hitam",
+            "price_range": {
+              "min": 300000,
+              "max": 600000
+            },
+            "style_notes": "Detail kulit mengkilap dengan sol tebal menambah tinggi dan mempertegas karakter look.",
+            "swap_candidates": [
+              "sepatu loafers kulit hitam",
+              "sneakers platform hitam"
+            ],
+            "color_group": "black",
+            "silhouette": "regular"
+          }
+        ],
+        "styling_rationale": {
+          "color": "Kontras tinggi dari pola garis hitam-putih dipadukan dengan biru denim medium menghasilkan palet retro modern yang menonjol.",
+          "silhouette": "Kombinasi fitted inner dengan oversized outer rajut dan celana wide-leg denim menyeimbangkan proporsi tubuh bagian atas dan bawah secara dramatis.",
+          "occasion": "Pas untuk menghadiri gig musik lokal, festival kreatif, atau nongkrong malam hari di kawasan perkotaan.",
+          "personal_note": "Penggunaan kardigan rajut bermotif garis tebal dipadukan dengan celana denim lebar menciptakan permainan proporsi siluet oversized yang mencolok dan trendi. Padu padan ini memberikan kenyamanan maksimal untuk aktivitas luar ruangan malam hari tanpa mengorbankan estetika. Biar gayamu semakin maksimal, pasangkan dengan kacamata hitam berbingkai tebal saat cuaca terik."
+        }
+      }
+    },
+    "budget_range": {
+      "min": 300000,
+      "max": 800000
+    },
+    "created": "2026-06-25",
+    "last_used": null,
+    "success_score": null
+  },
+  {
+    "formula_id": "date-night-romantic-classy-v1",
+    "version": 1,
+    "occasion_id": "date-night",
+    "vibe_keywords": [
+      "romantic",
+      "classy"
+    ],
+    "expression": "classy",
+    "variants": {
+      "safe": {
+        "variant_id": "safe",
+        "label": {
+          "id": "Look 1 — Aman",
+          "en": "Look 1 — Safe"
+        },
+        "items": [
+          {
+            "category": "top",
+            "description": "Kemeja katun kerah shanghai warna biru navy",
+            "product_query": "kemeja kerah shanghai navy katun linen",
+            "price_range": {
+              "min": 130000,
+              "max": 250000
+            },
+            "style_notes": "Kerah shanghai memberikan kesan semi-formal yang bersih dan tidak kaku.",
+            "swap_candidates": [
+              "kemeja navy lengan panjang reguler",
+              "kemeja kerah mandarin biru tua"
+            ],
+            "color_group": "navy",
+            "silhouette": "regular"
+          },
+          {
+            "category": "bottom",
+            "description": "Celana chino abu-abu gelap potongan slim-fit",
+            "product_query": "celana chino abu-abu gelap slim fit",
+            "price_range": {
+              "min": 160000,
+              "max": 290000
+            },
+            "style_notes": "Warna abu-abu gelap lebih elegan dibanding warna cokelat untuk acara malam.",
+            "swap_candidates": [
+              "celana chino charcoal grey",
+              "celana bahan abu-abu slim fit"
+            ],
+            "color_group": "gray",
+            "silhouette": "regular"
+          },
+          {
+            "category": "footwear",
+            "description": "Sepatu slip-on loafers kulit suede warna cokelat tua",
+            "product_query": "loafers suede cokelat tua",
+            "price_range": {
+              "min": 250000,
+              "max": 500000
+            },
+            "style_notes": "Tekstur suede memberikan sentuhan kemewahan kasual.",
+            "swap_candidates": [
+              "sepatu slip on kulit cokelat",
+              "chelsea boots suede cokelat"
+            ],
+            "color_group": "brown",
+            "silhouette": "regular"
+          }
+        ],
+        "styling_rationale": {
+          "color": "Navy dan abu-abu gelap menghadirkan harmoni warna malam yang tenang, disempurnakan oleh aksen cokelat tua dari alas kaki.",
+          "silhouette": "Kombinasi regular top dengan slim-fit bottom mempertegas siluet tubuh tanpa terasa sesak.",
+          "occasion": "Pilihan aman dan berkelas untuk makan malam kasual di restoran berpencahayaan hangat.",
+          "personal_note": "Paduan kemeja shanghai navy dengan celana chino abu-abu gelap ini menggunakan kontras warna redup yang sangat pas untuk pencahayaan malam hari yang intim. Gaya ini memberikan kesan rapi dan matang tanpa membuatmu terlihat berlebihan di hadapan pasangan. Biar makin berkesan, semprotkan parfum beraroma kayu hangat dan gunakan jam tangan tali kulit cokelat."
+        }
+      },
+      "stylish": {
+        "variant_id": "stylish",
+        "label": {
+          "id": "Look 2 — Modis",
+          "en": "Look 2 — Stylish"
+        },
+        "items": [
+          {
+            "category": "top",
+            "description": "Kaos polos putih katun combed premium",
+            "product_query": "kaos polos putih katun combed 30s premium",
+            "price_range": {
+              "min": 80000,
+              "max": 160000
+            },
+            "style_notes": "Bahan halus dan tidak menerawang, pas untuk dalaman jas.",
+            "swap_candidates": [
+              "kaos polos krem katun premium",
+              "t-shirt putih slim fit"
+            ],
+            "color_group": "white",
+            "silhouette": "regular"
+          },
+          {
+            "category": "outerwear",
+            "description": "Blazer kasual tanpa furing warna hitam",
+            "product_query": "blazer kasual hitam pria tanpa furing",
+            "price_range": {
+              "min": 250000,
+              "max": 550000
+            },
+            "style_notes": "Potongan rileks di bahu membuat tampilan blazer tidak terlalu kaku.",
+            "swap_candidates": [
+              "jaket harrington hitam",
+              "blazer katun santai hitam"
+            ],
+            "color_group": "black",
+            "silhouette": "regular",
+            "optional": true
+          },
+          {
+            "category": "bottom",
+            "description": "Celana bahan katun linen warna cokelat caramel",
+            "product_query": "celana linen cokelat caramel ankle pants",
+            "price_range": {
+              "min": 180000,
+              "max": 320000
+            },
+            "style_notes": "Ankle pants memberikan kesan kekinian dan mengekspos pergelangan kaki.",
+            "swap_candidates": [
+              "celana chino cokelat terracotta",
+              "ankle pants cokelat bata"
+            ],
+            "color_group": "brown",
+            "silhouette": "straight"
+          },
+          {
+            "category": "footwear",
+            "description": "Sepatu kets kulit warna putih bersih",
+            "product_query": "leather sneakers putih polos",
+            "price_range": {
+              "min": 280000,
+              "max": 550000
+            },
+            "style_notes": "Material kulit sintetis atau asli memberikan kilau bersih dibanding kanvas.",
+            "swap_candidates": [
+              "sneakers minimalis putih kulit",
+              "leather kets putih"
+            ],
+            "color_group": "white",
+            "silhouette": "regular"
+          }
+        ],
+        "styling_rationale": {
+          "color": "Warna cokelat caramel yang hangat diimbangi oleh hitam dan putih memberikan impresi pria yang hangat sekaligus dinamis.",
+          "silhouette": "Struktur tegas blazer berpadu dengan celana potongan straight ankle memberikan siluet tubuh yang lebih tegap.",
+          "occasion": "Sangat pas untuk kencan di restoran rooftop, bar kasual, atau jalan-jalan malam di pusat kota.",
+          "personal_note": "Kombinasi blazer kasual hitam dengan celana ankle cokelat caramel ini menerapkan prinsip kontras hangat-dingin yang membuat penampilanmu terlihat sangat modis. Penggunaan kaos putih dan sneakers kulit menjaga agar gayamu tetap kasual dan membumi untuk suasana kencan santai. Cukup biarkan blazer terbuka dan biarkan celana menggantung sedikit di atas mata kaki untuk kesan santai."
+        }
+      },
+      "bolder": {
+        "variant_id": "bolder",
+        "label": {
+          "id": "Look 3 — Berani",
+          "en": "Look 3 — Bolder"
+        },
+        "items": [
+          {
+            "category": "top",
+            "description": "Kemeja rajut berkerah lengan pendek warna burgundy",
+            "product_query": "knit shirt burgundy kerah pria",
+            "price_range": {
+              "min": 200000,
+              "max": 420000
+            },
+            "style_notes": "Tekstur rajut berpori memberikan kesan retro-romantis yang sangat kuat.",
+            "swap_candidates": [
+              "polo shirt rajut burgundy",
+              "kemeja rajut merah marun"
+            ],
+            "color_group": "red",
+            "silhouette": "regular"
+          },
+          {
+            "category": "bottom",
+            "description": "Celana kulot bahan katun pleats abu-abu",
+            "product_query": "celana kulot pleats abu abu pria",
+            "price_range": {
+              "min": 190000,
+              "max": 350000
+            },
+            "style_notes": "Lipatan halus (pleats) memberikan tekstur unik yang bergerak indah.",
+            "swap_candidates": [
+              "celana panjang pleats charcoal",
+              "celana loose pants abu-abu"
+            ],
+            "color_group": "gray",
+            "silhouette": "wide-leg"
+          },
+          {
+            "category": "footwear",
+            "description": "Sepatu loafers kulit hitam mengkilap",
+            "product_query": "penny loafers hitam kulit",
+            "price_range": {
+              "min": 350000,
+              "max": 700000
+            },
+            "style_notes": "Sol semi-formal yang tegas mengimbangi kelenturan celana pleats.",
+            "swap_candidates": [
+              "sepatu tassel loafers hitam",
+              "sepatu slip on kulit hitam"
+            ],
+            "color_group": "black",
+            "silhouette": "regular"
+          }
+        ],
+        "styling_rationale": {
+          "color": "Burgundy yang romantis dipasangkan dengan abu-abu pleats menghasilkan harmoni warna berani yang artistik.",
+          "silhouette": "Kemeja rajut regular fit dengan celana lebar berlipat menghasilkan ilusi gerak yang elegan.",
+          "occasion": "Sangat cocok untuk kencan menonton pameran seni, konser musik intim, atau makan malam eksklusif.",
+          "personal_note": "Perpaduan kemeja rajut burgundy dengan celana pleats abu-abu ini menerapkan permainan tekstur kain yang berani untuk memancarkan aura romantis yang modern. Bahan rajutan dan lipatan kain memberikan dimensi visual yang dinamis saat terkena cahaya malam. Kenakan tanpa aksesori berlebih agar detail kerah rajut dan lipatan celana tetap menjadi pusat perhatian utama."
+        }
+      }
+    },
+    "budget_range": {
+      "min": 400000,
+      "max": 1000000
+    },
+    "created": "2026-06-25",
+    "last_used": null,
+    "success_score": null
+  },
+  {
+    "formula_id": "kondangan-elegant-formal-v1",
+    "version": 1,
+    "occasion_id": "kondangan",
+    "vibe_keywords": [
+      "elegant",
+      "formal"
+    ],
+    "expression": "elegant",
+    "variants": {
+      "safe": {
+        "variant_id": "safe",
+        "label": {
+          "id": "Look 1 — Aman",
+          "en": "Look 1 — Safe"
+        },
+        "items": [
+          {
+            "category": "top",
+            "description": "Kemeja batik furing katun warna dasar hitam motif emas",
+            "product_query": "kemeja batik katun furing hitam emas premium",
+            "price_range": {
+              "min": 180000,
+              "max": 380000
+            },
+            "style_notes": "Furing katun bagian dalam membuat kemeja batik tetap tegak dan nyaman dipakai.",
+            "swap_candidates": [
+              "kemeja batik tulis lengan panjang hitam",
+              "kemeja batik sogan hitam cokelat"
+            ],
+            "color_group": "black",
+            "silhouette": "regular"
+          },
+          {
+            "category": "bottom",
+            "description": "Celana bahan katun woll hitam potongan slim-fit",
+            "product_query": "celana bahan wool hitam slim fit",
+            "price_range": {
+              "min": 200000,
+              "max": 390000
+            },
+            "style_notes": "Serat wool memberikan kesan jatuh yang rapi dan bebas kusut.",
+            "swap_candidates": [
+              "celana bahan katun formal hitam",
+              "celana chino hitam formal"
+            ],
+            "color_group": "black",
+            "silhouette": "regular"
+          },
+          {
+            "category": "footwear",
+            "description": "Sepatu pantofel kulit Oxford hitam",
+            "product_query": "sepatu pantofel oxford hitam kulit",
+            "price_range": {
+              "min": 300000,
+              "max": 650000
+            },
+            "style_notes": "Tipe bertali formal untuk menjaga kerapian langkah.",
+            "swap_candidates": [
+              "sepatu pantofel derby hitam",
+              "sepatu loafers kulit hitam formal"
+            ],
+            "color_group": "black",
+            "silhouette": "regular"
+          }
+        ],
+        "styling_rationale": {
+          "color": "Warna dasar hitam pekat dipadukan dengan motif batik emas memancarkan kesan wibawa yang agung dan klasik.",
+          "silhouette": "Potongan regular pada kemeja batik katun furing dan celana slim-fit menjaga penampilan tetap tegak dan berwibawa.",
+          "occasion": "Pilihan mutlak dan aman untuk resepsi pernikahan malam hari di gedung pertemuan besar.",
+          "personal_note": "Kombinasi kemeja batik hitam bermotif emas dengan celana wool hitam ini menerapkan konsep keselarasan warna formal yang tidak pernah salah di acara adat maupun modern. Struktur batik berlapis furing memastikan pakaian tidak mudah kusut selama Anda bersosialisasi di tempat acara. Biar makin gagah, pastikan kemeja disetrika dengan rapi dan gunakan sepatu kulit yang telah disemir mengkilap."
+        }
+      },
+      "stylish": {
+        "variant_id": "stylish",
+        "label": {
+          "id": "Look 2 — Modis",
+          "en": "Look 2 — Stylish"
+        },
+        "items": [
+          {
+            "category": "top",
+            "description": "Kemeja lengan panjang bahan tenun ikat warna biru navy",
+            "product_query": "kemeja tenun ikat lengan panjang navy",
+            "price_range": {
+              "min": 220000,
+              "max": 450000
+            },
+            "style_notes": "Tekstur tenun buatan tangan memberikan kesan eksklusif dan bersahaja.",
+            "swap_candidates": [
+              "kemeja tenun lurik navy",
+              "kemeja kerah koko tenun"
+            ],
+            "color_group": "navy",
+            "silhouette": "regular"
+          },
+          {
+            "category": "bottom",
+            "description": "Celana bahan katun semi-formal warna krem light beige",
+            "product_query": "celana bahan krem light beige straight fit",
+            "price_range": {
+              "min": 180000,
+              "max": 320000
+            },
+            "style_notes": "Warna krem terang memberikan kontras segar untuk kemeja tenun gelap.",
+            "swap_candidates": [
+              "celana chino krem terang formal",
+              "celana bahan broken white"
+            ],
+            "color_group": "beige",
+            "silhouette": "straight"
+          },
+          {
+            "category": "footwear",
+            "description": "Sepatu loafers kulit warna cokelat tan dengan rumbai",
+            "product_query": "tassel loafers cokelat tan kulit",
+            "price_range": {
+              "min": 320000,
+              "max": 600000
+            },
+            "style_notes": "Model tassel loafers memberikan sentuhan modern yang ekspresif.",
+            "swap_candidates": [
+              "sepatu slip on kulit cokelat muda",
+              "loafers suede cokelat tan"
+            ],
+            "color_group": "brown",
+            "silhouette": "regular"
+          }
+        ],
+        "styling_rationale": {
+          "color": "Navy dan krem terang menghasilkan kontras tonal yang segar, diperkuat oleh kehangatan warna cokelat tan dari alas kaki.",
+          "silhouette": "Potongan kemeja tenun yang tegas diseimbangkan oleh celana lurus krem sehingga tubuh tampak proporsional dan tidak kaku.",
+          "occasion": "Sangat cocok untuk menghadiri pesta pernikahan bertema luar ruangan (garden party) atau semi-formal siang hari.",
+          "personal_note": "Perpaduan kemeja tenun navy dengan celana bahan krem ini menerapkan teknik kontras terang-gelap yang membuat tampilan kondanganmu terasa lebih modern dan dinamis. Pilihan bahan tenun yang kaya tekstur memberikan nilai seni tinggi pada penampilan tanpa harus terikat motif batik konvensional. Cukup pasang ikat pinggang kulit berwarna senada dengan sepatu untuk menyatukan seluruh elemen tampilan."
+        }
+      },
+      "bolder": {
+        "variant_id": "bolder",
+        "label": {
+          "id": "Look 3 — Berani",
+          "en": "Look 3 — Bolder"
+        },
+        "items": [
+          {
+            "category": "top",
+            "description": "Kemeja polos putih katun poplin kerah mandarin",
+            "product_query": "kemeja putih polos kerah mandarin katun poplin",
+            "price_range": {
+              "min": 120000,
+              "max": 240000
+            },
+            "style_notes": "Inner yang bersih dengan bahan katun poplin yang halus.",
+            "swap_candidates": [
+              "kemeja putih polos kerah shanghai",
+              "kemeja mandarin putih slim fit"
+            ],
+            "color_group": "white",
+            "silhouette": "regular"
+          },
+          {
+            "category": "outerwear",
+            "description": "Jas beskap modern kerah shanghai warna abu-abu muda",
+            "product_query": "jas shanghai abu-abu muda pria beskap modern",
+            "price_range": {
+              "min": 350000,
+              "max": 800000
+            },
+            "style_notes": "Jas berkerah tertutup bergaya oriental-nusantara dengan potongan pas badan.",
+            "swap_candidates": [
+              "blazer shanghai abu-abu",
+              "jas mandarin slim fit abu"
+            ],
+            "color_group": "gray",
+            "silhouette": "fitted",
+            "optional": true
+          },
+          {
+            "category": "bottom",
+            "description": "Celana bahan katun formal warna hitam pekat",
+            "product_query": "celana bahan hitam formal straight fit",
+            "price_range": {
+              "min": 180000,
+              "max": 350000
+            },
+            "style_notes": "Potongan straight fit yang rapi sebagai penyeimbang jas abu-abu.",
+            "swap_candidates": [
+              "celana panjang wool hitam formal",
+              "celana bahan hitam regular fit"
+            ],
+            "color_group": "black",
+            "silhouette": "straight"
+          },
+          {
+            "category": "footwear",
+            "description": "Sepatu Chelsea boots kulit hitam mengkilap",
+            "product_query": "chelsea boots kulit hitam pria",
+            "price_range": {
+              "min": 380000,
+              "max": 850000
+            },
+            "style_notes": "Sepatu boots pergelangan kaki yang bersih dan memberi kesan dapper modern.",
+            "swap_candidates": [
+              "sepatu loafers platform hitam",
+              "sepatu monk strap hitam"
+            ],
+            "color_group": "black",
+            "silhouette": "regular"
+          }
+        ],
+        "styling_rationale": {
+          "color": "Abu-abu muda pada jas shanghai berpadu kontras dengan kemeja putih dan celana hitam, menciptakan gradasi monokromatis yang mewah.",
+          "silhouette": "Siluet jas yang fit di bahu berpadu dengan celana lurus dan sepatu boots tinggi menghasilkan impresi tubuh yang ramping dan jangkung.",
+          "occasion": "Pilihan berani dan sangat memukau untuk pesta resepsi pernikahan malam hari bertema internasional atau modern.",
+          "personal_note": "Penggunaan jas beskap modern berkerah shanghai dengan celana hitam dan sepatu Chelsea boots ini memadukan unsur tradisional yang berkelas dengan tren alas kaki modern yang dapper. Struktur jas yang pas badan memberikan kesan rapi tingkat tinggi yang membedakanmu dari tamu pria lainnya. Agar siluet tubuh terlihat jangkung sempurna, pastikan celana dipotong pas tanpa menumpuk di atas sepatu boots."
+        }
+      }
+    },
+    "budget_range": {
+      "min": 500000,
+      "max": 1200000
+    },
+    "created": "2026-06-25",
+    "last_used": null,
+    "success_score": null
+  }
+]
