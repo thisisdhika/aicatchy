@@ -122,12 +122,13 @@ Mobile viewports use a horizontal swipeable carousel for the three outfits (Safe
 | Label visible | Naming ("Safe", "Stylish", "Bolder") is permanently visible above each card. |
 | Gesture hint | Subtle shimmer on the edge of card 1 on first load to signal swipe gesture. |
 
-### 3.4 Desktop Layout
+### 3.4 Desktop Fallback
 
-Breakpoints ≥768px display outfits in a three-column grid.
+Desktop is a secondary surface. The product is optimized for mobile web; desktop viewports show the same mobile carousel layout within a centered ≤430px container.
 
-- **Layout:** Three equal cards side-by-side with 16px gutters. No swipe behavior.
-- **Interactive State:** Cards lift slightly (+2px Y offset box shadow) on hover.
+- **Steering:** A minimal banner suggests scanning a QR or visiting on mobile for the best experience.
+- **Layout:** ≥768px viewports display the mobile carousel constrained to ≤430px, centered. No three-column grid.
+- **Interaction:** Swipe works via click-drag or arrow nav. Hover states are omitted — the touch-based interaction model is the primary target.
 
 ### 3.5 Earned Auth & Save Interaction
 
@@ -232,6 +233,7 @@ These interactive capabilities are deferred post-launch to maintain a lightweigh
 
 - **In-App Browser Sandbox:** Affiliate links must open cleanly in in-app browsers (e.g. Instagram/TikTok browser sandboxes) without breaking the session state.
 - **LocalStorage Durability:** Local storage is utilized as the local backup for saved looks. The UI must elegantly handle scenarios where local storage is cleared by iOS/Android browser policy by prompting the guest user periodically to create a free account to ensure their looks are saved permanently.
+- **Desktop Is Secondary:** Desktop viewports are a fallback surface. The mobile web experience is the target. Desktop users see the mobile carousel within a constrained container and are gently steered to switch to a mobile device. No desktop-specific layout or interactions are built beyond basic functional parity.
 
 ---
 

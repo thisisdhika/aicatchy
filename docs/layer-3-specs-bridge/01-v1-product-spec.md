@@ -24,16 +24,15 @@ This spec is built on a specific architectural philosophy. Know it before readin
 
 | Component | Approach |
 |-----------|----------|
-| **Recommendation engine** | Small human-curated outfit formula library (JSON). Styled formulas map `occasion × vibe × expression → 3 outfits`. No graph database required. |
-| **LLM role** | Routing / selection / presentation only. LLM matches user input to the closest formula and generates styling rationale. Incorporates light personalization from style preferences and body-fit notes. NOT a fully autonomous fashion brain that creates outfits from scratch. |
+| **Recommendation engine** | Small human-curated outfit formula library (DB-backed, admin-managed with versioning). Styled formulas map `occasion × vibe × expression → 3 outfits`. No graph database required. |
+| **LLM role** | Selection / presentation / rationale only. Deterministic candidate ranking narrows the field first, then the LLM selects the final formula and generates styling rationale. Incorporates light personalization from style preferences and body-fit notes. NOT a fully autonomous fashion brain that creates outfits from scratch. |
 | **Persistence** | Hybrid: Stateless for guests (localStorage-based saved looks). Server-side database persistence for authenticated users, storing styling memory (occasion history, saved/liked looks, style preferences, optional body-fit notes). |
 | **Authentication** | Earned Auth: Deferred until after the first recommendation is generated. Tapping the heart icon to save prompts signup/login. Pre-login saves are held locally first, then claimed into the account. |
 | **Affiliate data** | Static product queries per formula item. Shopee / Involve Asia affiliate links resolved at display time via their API. No product catalog sync. |
 
-<!-- ponytail: JSON formula library instead of styling graph, upgrade if scaling limits are hit -->
+<!-- ponytail: DB-backed formula library instead of styling graph, upgrade if scaling limits are hit -->
 <!-- ponytail: guest saves in localStorage, server DB sync on auth -->
-
-The outfit formula library ships as a small JSON file bundled with the app (~100–300 formulas initially). LLM selection over this set produces 3 output looks. This is intentionally far simpler than a knowledge-graph-backed recommendation system — validated first, scaled later if the model proves out.
+The outfit formula library is stored in the database and administered through the admin app (~100–300 formulas initially). The application layer narrows candidates via deterministic filtering (occasion + vibe matching), and the LLM selects the final formula and generates styling rationales. This is intentionally far simpler than a knowledge-graph-backed recommendation system — validated first, scaled later if the model proves out.
 
 ---
 
@@ -81,7 +80,7 @@ The outfit formula library ships as a small JSON file bundled with the app (~100
 
 **F5 — Outfit Generation**
 - Takes occasion + vibe + expression + intent as input.
-- LLM routes input to the closest formula in the human-curated library.
+- The application narrows candidates via deterministic filtering, then the LLM selects the final formula from top candidates.
 - Returns 3 outfits: Safe (anchor — most versatile), Stylish (aspiration — more curated), Bolder (surprise — higher risk/reward).
 - Each outfit: top + bottom + footwear + accessory + outerwear (if needed).
 - **Personalized Rationale:** If style preferences or optional body-fit notes are present in the user's profile, the LLM includes light personalization in the styling rationale (e.g. highlighting why the recommended cuts fit their silhouette preferences or why the colors align with their explicit preferences).
@@ -89,7 +88,7 @@ The outfit formula library ships as a small JSON file bundled with the app (~100
 - No budget filtering in the MLP. Prices shown as-is from the formula.
 
 **F6 — Outfit Display**
-- Mobile-first: horizontal carousel with visible peeking adjacent cards and page dots on mobile viewports; responsive three-column grid on desktop/wider screens.
+- Mobile-first: horizontal carousel with visible peeking adjacent cards and page dots on mobile viewports; desktop uses the same layout inside a centered mobile-width container.
 - Each card: mood image (product collage), item list with price + link, styling rationale.
 - Card interaction: tap to expand items, tap link to open Shopee or merchant page.
 - Outfits are viewed, saved, shared, and purchased in-session. Swap and budget-adjust are deferred to P1.
@@ -245,7 +244,7 @@ Then the chip highlights and others unselect (single select)
 Given valid input (occasion + vibe + expression + intent)
 When user taps "Generate"
 Then a loading state appears within 200ms
-And results render within 5 seconds (p95)
+And results render within 5 seconds (P95)
 And exactly 3 outfits are displayed (Safe, Stylish, Bolder)
 And each outfit contains at least 3 item categories (top, bottom, footwear)
 

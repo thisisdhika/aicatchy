@@ -67,7 +67,7 @@ Sub-occasion types are optional refinements. V1 can operate at the canonical lev
 
 ### 1.3 Registry Location
 
-Canonical types and synonyms stored as a JSON file in the application repository:
+Canonical types and synonyms are stored in the `formula_library` database table (admin-managed, versioned). The JSON structure below illustrates the data shape stored in the JSONB columns:
 
 ```json
 {
@@ -82,6 +82,8 @@ Canonical types and synonyms stored as a JSON file in the application repository
   ]
 }
 ```
+
+During early development, seed data is loaded from `formulas/v1/seed.json` into the database. The authoritative source for all production formula data is the database, managed through the admin app.
 
 ---
 

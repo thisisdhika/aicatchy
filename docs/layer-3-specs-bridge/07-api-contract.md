@@ -11,11 +11,13 @@ next_review: trigger: next engineering sprint
 tags: [layer-3, api, contract, engineering, aicatchy]
 references: [L3-01, L3-02, L3-03, L3-06]
 ---
-
 # Internal API Contract — Frontend–Backend
 
 *Request/response contract between the AICatchy frontend and its generation/persistence backend. Covers generation, earned auth, saved-look claiming, profile memory, and affiliate click tracking. Active baseline for the MLP build.*
 
+> **Architecture note:** The primary internal API protocol is **tRPC** — all frontend-to-backend communication uses typed tRPC procedures defined in the `api` package. This document describes the logical request/response contracts (the Zod schemas and procedure signatures) that tRPC enforces at compile time. REST-style URLs and HTTP methods shown below are descriptive of the underlying transport, not prescriptive. Explicit REST endpoints exist only for webhook receivers and affiliate redirects, documented in L3-03.
+>
+> See L3-11 §2.3 for the tRPC architecture rationale and L3-05 §2.4 for procedure definitions.
 ---
 
 ## 1. Conventions
@@ -30,14 +32,14 @@ references: [L3-01, L3-02, L3-03, L3-06]
 
 ### 1.2 Authentication
 
-| Context | Auth mechanism | Header |
-|---------|---------------|--------|
-| Guest session | Session token (client-generated UUID, stored in `localStorage`) | `X-Session-Id: <uuid>` |
-| Authenticated user | JWT bearer token, returned from `/auth/login` and `/auth/register` | `Authorization: Bearer <token>` |
+| Context | Auth mechanism | Transport |
+|---------|---------------|-----------|
+| Guest session | Client-generated UUID v4, stored in `localStorage`, sent as session header | `X-Session-Id: <uuid>` |
+| Authenticated user | Supabase Auth session managed via `@supabase/ssr` cookie (server-side session) | HTTP-only cookie (automatic) |
 
-- Session token is required on every request for guest analytics and save-claim association.
-- JWT expiry: 30 days. No refresh token in V1 — on expiry the user re-authenticates.
-- All authenticated endpoints also accept `X-Session-Id` for save-claim reconciliation.
+- Session ID is required on every request for guest analytics and save-claim association.
+- Authenticated requests rely on the Supabase session cookie set by server-side auth; no client-side JWT management needed.
+- All authenticated endpoints also accept `X-Session-Id` for save-claim reconciliation (guest saves claimed on signup).
 
 ### 1.3 Content Type
 
@@ -200,12 +202,11 @@ Returns 3 outfit recommendations (Safe, Stylish, Bolder) from the formula librar
 | `NO_FORMULA_MATCH` | 200 (ok:true, data:null) | No formula matched the input combination. Frontend shows empty-state message. |
 | `LLM_TIMEOUT` | 502 | LLM provider did not respond within 8 seconds. Retry once. |
 | `AFFILIATE_RESOLUTION_FAILED` | 200 (partial) | Generation succeeded but one or more item affiliate links could not be resolved. Items appear with `affiliate: null`. |
+### 2.2 Fallback: Client-Side Stub (Development Only)
 
-### 2.2 Fallback: Presigned Generation
+During early development, when the backend is unavailable, the frontend may fall back to a bundled JSON library lookup with a simple keyword-matching client-side heuristic. This is **not** a production path — it exists solely to keep the demo functional during development before the DB-backed formula pipeline is wired.
 
-When the backend is unavailable, the frontend may fall back to a bundled JSON library lookup with a simple keyword-matching client-side heuristic. This is not a first-class API — it exists solely to keep the demo functional during development.
-
-The client-side fallback uses a compiled copy of the formula library shipped with the frontend build. See L3-02 for the schema.
+The client-side fallback uses a compiled copy of the formula library shipped with the frontend build. This stub will be removed once the DB-backed formula loading is stable across all environments.
 
 ---
 

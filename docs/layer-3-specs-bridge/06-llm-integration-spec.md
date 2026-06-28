@@ -20,13 +20,22 @@ references: [L1-01, L2-02, L2-03, L3-01, L3-02, L3-03, L0-01]
 
 ## 1. Model Role & Scope
 
+### 1.0 Application-Layer Pre-Filtering
+
+Before any LLM call, the application layer deterministically narrows the formula candidate set:
+
+1. **Occasion match** — Maps user input to canonical occasion type (keyword + synonym matching).
+2. **Vibe match** — Normalizes keywords against the recommended set (Levenshtein ≤2 fuzzy match).
+
+The LLM receives only the top-5 filtered candidates (if 5 exist). This means the LLM selects from a narrowed set — it does not browse the full library. Deterministic ranking happens first; the LLM makes only the final choice and generates rationale.
+
+
+
 ### 1.1 What the LLM Does
 
 | Function | Description | Always? |
 |----------|-------------|---------|
-| **Occasion matching** | Map free-text occasion input to the closest canonical occasion type (hangout, date-night, campus, office, kondangan) using synonym matching + contextual reasoning | Yes |
-| **Vibe normalization** | Accept 1–3 free-text keywords, fuzzy-match against recommended keyword set (Levenshtein ≤2), and map to canonical vibe dimensions (style, mood, context, impression) | Yes |
-| **Formula selection** | Route normalized occasion × vibe × expression × intent to the closest outfit formula in the human-curated library. Return the formula ID and confidence score. | Yes |
+| **Formula selection** | Select the best formula from the application-layer pre-filtered candidate set (top-5, narrowed by deterministic occasion + vibe + expression matching). Return the selected formula ID and confidence score. | Yes |
 | **Styling rationale generation** | Generate 2–3 sentence editorial narratives per outfit variant following the Fluid Curation Narrative Rule (L2-02 §3). Each rationale must cite a styling principle, explain occasion fit, and add a high-value styling tip. | Yes |
 | **Light personalization** | When authenticated user profile contains style preferences or body-fit notes, incorporate these into the rationale (e.g., "This jacket is selected in a relaxed cut to accommodate your preference for wider shoulders.") | Conditional — only for post-auth users with stored preferences |
 
@@ -40,7 +49,6 @@ references: [L1-01, L2-02, L2-03, L3-01, L3-02, L3-03, L0-01]
 | Generate promotional or pressure-language | All output must pass the editorial tone check (L2-02). No urgency, no hype, no spam patterns. |
 | Store, cache, or learn from user conversations outside a single generation request | No conversation history or session memory in the LLM layer. Personalization comes from the application-level profile, not model memory. |
 | Process payment, PII, or authentication data | LLM receives only pseudonymized styling context. Emails, tokens, passwords never enter the prompt. |
-| Make autonomous tradeoffs (e.g., "swap item X for Y because it's cheaper") | Budget adjustment and swap are deferred post-MLP. LLM has no authority to modify formula structure. |
 | Respond to user follow-up questions or engage in dialogue | AICatchy is a single-turn recommendation engine, not a conversational agent. Each generation is stateless. |
 
 ### 1.3 Scope Diagram
@@ -52,13 +60,14 @@ references: [L1-01, L2-02, L2-03, L3-01, L3-02, L3-03, L0-01]
 │  Editor drafts tone guidance (L2-02)                 │
 │  Curve setter defines occasions + vibes              │
 └──────────────────────┬──────────────────────────────┘
-                       │ formula JSON
+                       │ formula library (DB)
                        ▼
 ┌─────────────────────────────────────────────────────┐
 │                  LLM DOMAIN                          │
-│  Input: occasion + vibe + expression + intent       │
-│  Work:  1. Match input → canonical formula          │
-│         2. Select 3 variants (safe/stylish/bolder)   │
+│  Input: pre-filtered formula candidates (top-5)     │
+│         + occasion + vibe + expression + intent      │
+│  Work:  1. Select best formula from candidates       │
+│         2. Assign 3 variants (safe/stylish/bolder)   │
 │         3. Generate styling rationale per variant    │
 │  Optional: incorporate stored preferences/notes      │
 │  Output: formula_id + 3 enriched outfit objects      │

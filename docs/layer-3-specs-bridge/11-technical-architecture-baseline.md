@@ -1,45 +1,43 @@
 ---
 id: L3-11
-title: Technical Architecture — Deferred Reference
-status: deferred
+title: Technical Architecture — Active Baseline
+status: active
 owner: Architect
 reviewers: [Craftsman, Pathfinder]
 version: 1.0
 created: 2026-06-28
 last_reviewed: 2026-06-28
-next_review: trigger: post-MLP scale
+next_review: trigger: next engineering sprint
 tags: [layer-3, architecture, baseline, grilling, engineering, aicatchy]
 references: [L1-01, L3-01, L3-02, L3-03, L3-05, L3-06, L3-07]
 ---
+# Technical Architecture — Active Baseline
 
-# Technical Architecture — Deferred Reference
-
-*Deferred reference architecture for the post-MLP phase. This document captures the matured monorepo + service-layer architecture discussed during the grilling session. It is NOT the active executable build baseline (which remains the simpler L3-05). It serves solely as a roadmap for architectural evolution when scale triggers (team size, complexity, DB-backed formulas, background jobs) are met. Only the AI Provider abstraction seam and logical domain naming have been pulled forward into the L3-05 active baseline.*
+*Active reference architecture for the AICatchy MLP. This document captures the monorepo + service-layer architecture that is the build baseline for implementation. It supersedes the older simplified single-executable approach described in earlier drafts of L3-05. The AI Provider abstraction seam, logical domain naming, package layout, and data/queue models documented here are the current target for all engineering work.*
 
 ---
 
 ## 1. Context
 
-### 1.1 What Changed Since L3-05
+### 1.1 Baseline Architecture Decisions
 
-The initial L3-05 ADR captured a minimal architecture (Next.js monolith with Supabase). The grilling session stress-tested that design and resolved a more structured architecture that can scale with the team and product without premature complexity.
+This document captures the monorepo architecture that serves as the active build baseline for AICatchy MLP. The initial L3-05 ADR drafts explored a simpler single-executable approach, but the design direction resolved on the more structured baseline below — one that can scale with the team and product without premature complexity.
 
-| Dimension | L3-05 (simplified) | L3-11 (baseline) |
-|---|---|---|
-| Repo organization | Single Next.js project | Monorepo: `web`, `api`, `jobs`, `admin`, shared packages |
-| API layer | Next.js API Routes | tRPC on dedicated `api` server |
-| ORM | Raw SQL / Supabase JS | Drizzle ORM with typed schemas |
-| Rendering | SSR dominant | Hybrid: server + client components per use case |
-| Data fetching | Server components + fetch | TanStack Query + server fetch |
-| UI components | Tailwind utility classes | Tailwind + shadcn/ui (Radix primitives) |
-| Background jobs | None (inline) | Postgres-backed queue with cron + dead-letter |
-| Admin surface | None | Separate admin app with auth, approvals, audit |
-| AI provider | OpenAI hard-coded | Abstraction layer, OpenAIV1, Instagram seam |
-| Formula storage | Bundled JSON | DB-backed (admin-managed) with versioned rollout |
-| State management | URL + local | TanStack Query + minimal zustand for UI state |
-| Package manager | npm | pnpm workspaces |
-| CI/CD | Manual | Automated gates: typecheck, lint, test, build |
-
+| Dimension | Baseline Decision |
+|---|---|
+| Repo organization | Monorepo: `web`, `api`, `jobs`, `admin`, shared packages |
+| API layer | tRPC on dedicated `api` server |
+| ORM | Drizzle ORM with typed schemas |
+| Rendering | Hybrid: server + client components per use case |
+| Data fetching | TanStack Query + server fetch |
+| UI components | Tailwind + shadcn/ui (Radix primitives) |
+| Background jobs | Postgres-backed queue with cron + dead-letter |
+| Admin surface | Separate admin app with auth, approvals, audit |
+| AI provider | Abstraction layer (OpenAIV1, Instagram seam) |
+| Formula storage | DB-backed (admin-managed) with versioned rollout |
+| State management | TanStack Query + minimal zustand for UI state |
+| Package manager | pnpm workspaces |
+| CI/CD | Automated gates: typecheck, lint, test, build |
 ### 1.2 Key Constraints (Carried Forward)
 
 - **Team**: 1–2 engineers, seed-stage.
@@ -176,7 +174,7 @@ web (Next.js)  →  tRPC client  →  api server (tRPC)  →  Domain Service  �
 **Server-side session:**
 - Supabase `@supabase/ssr` package for cookie-based session handling in Next.js.
 - Server components use `createServerClient` to read session from cookies.
-- tRPC procedures use middleware to extract user context from session — enables authorisation checks in a single place.
+- tRPC procedures use middleware to extract user context from session — enables authorization checks in a single place.
 
 **Guest save flow (unchanged from L3-01):**
 1. Guest generates outfit.
@@ -345,7 +343,7 @@ CI runs on every PR. Post-merge deploy to Vercel preview + production.
 | **Locale** | Indonesian (id) is the primary language. English (en) is secondary for future. | Language detection via Accept-Language header. All content authored in Indonesian first. |
 | **Currency** | IDR only for V1. No multi-currency support. | Affiliate links always priced in IDR. |
 | **Region** | Single-region start (Indonesia). No data residency beyond Singapore Supabase region. | No CDN multi-region. Vercel Edge Network serves globally but origin is fixed Singapore. |
-| **Regulation** | UU PDP compliance. | Data minimisation, consent for cookies, right to delete, anonymized logs. |
+| **Regulation** | UU PDP compliance. | Data minimization, consent for cookies, right to delete, anonymized logs. |
 
 ---
 
@@ -360,7 +358,7 @@ These are documented NON-GOALS for V1. They are NOT forbidden — they are defer
 | **Multi-region / Edge deployment** | Non-goal (MLP) | Single Supabase region (Singapore). If latency becomes an issue for Sumatran users, add edge-cached static assets first. |
 | **Multi-currency** | Non-goal (MLP) | IDR only. If expansion to Malaysia or SG, add currency column to items + exchange rate service. |
 | **iOS / Android native apps** | Non-goal (MLP) | Mobile web first. If retention data justifies native, wrap in PWA shell first, then evaluate React Native or Swift/Kotlin. |
-| **Social login (Google, Apple)** | Non-goal (MLP) | Email/password + magic link. Supabase supports social login as a one-config change — add when conversion data shows it's a blocker. |
+| **Social login (Google)** | Non-goal (MLP) | Email/password + magic link. Supabase supports social login as a one-config change — Google first (MLP non-goal), Instagram later if engagement data justifies it. |
 | **Real-time collaboration** | Non-goal (MLP) | Supabase Realtime available if needed, but not a V1 requirement. |
 | **API versioning / public API** | Non-goal (MLP) | All tRPC procedures are internal. Public API (for third-party affiliates) is a V2 concern. |
 | **Formula AI generation** | Non-goal (MLP) | Formulas are human-curated. AI-generated formulas would require quality verification workflows and are deferred. |
@@ -388,3 +386,4 @@ Target: keep infra cost below $50/mo until product-market fit is validated.
 | Date | Version | Change | Author |
 |---|---|---|---|
 | 2026-06-28 | 1.0 | Frozen baseline from grilling session outcomes | Architect |
+| 2026-06-28 | 1.1 | Activated from deferred status; aligned with L3-05 monorepo baseline; reframed comparison table as baseline summary | Architect |

@@ -43,7 +43,7 @@ status: draft | active | review | deprecated | archived | deferred
 - **review → active**: Changes approved. Version bumps (minor for edits, major for structural changes).
 - **review → deprecated**: A newer doc supersedes this one. The deprecated doc field `superseded_by` points to the new doc's ID.
 - **deprecated → archived**: Superseding doc is stable for ≥1 review cycle. Archived docs are read-only.
-- **deferred → active**: Post-MLP scale triggers are met (see BLUEPRINT §2.5). Owner initiates activation with Pathfinder sign-off.
+- **deferred → active**: Activation conditions (defined per doc) are met. Owner initiates activation with Pathfinder sign-off.
 - **deferred → deprecated**: The deferred architecture direction is abandoned. Owner marks deprecated with rationale.
 
 ### 1.3 Versioning Convention
@@ -150,7 +150,7 @@ references: [<ID>, ...]   # optional
 | L3-08 | Analytics Event Schema        | active   | trigger: next eng sprint    | Architect  |
 | L3-09 | Environment Configuration Specification | active   | trigger: next eng sprint    | Architect  |
 | L3-10 | Outfit Generation Prompt Pack           | active   | trigger: next eng sprint      | Craftsman  |
-| L3-11 | Technical Architecture — Deferred Reference | deferred | trigger: post-MLP scale  | Architect  |
+| L3-11 | Technical Architecture Baseline | active   | trigger: next eng sprint    | Architect  |
 
 ---
 
@@ -225,6 +225,7 @@ Content.
 
 | Date       | Version | Change                              | Author |
 |------------|---------|-------------------------------------|--------|
+| 2026-06-28 | 1.8     | Activated L3-11 as Technical Architecture Baseline (was deferred); removed stale post-MLP scale references from deferred transitions | Scribe |
 | 2026-06-28 | 1.7     | Registered L3-11 as deferred reference architecture; added `deferred` status to governance | Scribe |
 | 2026-06-25 | 1.6     | Activated L3-01 to L3-10 for MLP build, updated L3 dashboard | Architect |
 

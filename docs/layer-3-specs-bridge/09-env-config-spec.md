@@ -14,7 +14,7 @@ references: [L3-01, L3-03, L3-05, L3-06, L3-07, L3-08]
 
 # Environment Configuration Specification
 
-*Defines the environment variable matrix and configuration parameters required to stand up local, staging, and production environments for AICatchy. This document ensures implementation consistency across Next.js API routes, client actions, Supabase, LLM providers, and affiliate APIs.*
+*Defines the environment variable matrix and configuration parameters required to stand up local, staging, and production environments for AICatchy. This document ensures implementation consistency across the monorepo service packages (web, api, admin), Supabase, LLM providers, and affiliate APIs.*
 
 ---
 
@@ -48,7 +48,7 @@ references: [L3-01, L3-03, L3-05, L3-06, L3-07, L3-08]
 - **`NEXT_PUBLIC_APP_URL`**: Used client-side for generating WhatsApp share canvas links (L3-01 F9) and server-side in the `/api/l/go` click redirect endpoint (L3-03 §3).
 
 ### 2.2 Database & Authentication (Supabase)
-- **`NEXT_PUBLIC_SUPABASE_URL`** & **`NEXT_PUBLIC_SUPABASE_ANON_KEY`**: Exposed to the browser. Supabase client operations on `saved_looks` and `profiles` are isolated via PostgreSQL Row-Level Security (RLS) based on the user's JWT.
+- **`NEXT_PUBLIC_SUPABASE_URL`** & **`NEXT_PUBLIC_SUPABASE_ANON_KEY`**: Exposed to the browser. Supabase client operations on `saved_looks` and `profiles` are isolated via PostgreSQL Row-Level Security (RLS) based on the user's Supabase Auth session.
 - **`SUPABASE_SERVICE_ROLE_KEY`**: Kept server-side. Used strictly in the `/auth/register` and `/auth/claim-saves` endpoints to merge guest `localStorage` records into the registered user's profile.
 - **`DATABASE_URL`**: Directly connects to the Supabase Postgres instance on port 5432. Used for local db migrations and DB schema setups.
 

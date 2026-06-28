@@ -73,7 +73,8 @@ AICatchy/docs/                          # Root of all documentation
     +-- 08-analytics-event-schema.md    # Event taxonomy, payload schema, metric mapping
     +-- 09-env-config-spec.md           # Environment variable matrix & config setup
     +-- 10-outfit-generation-prompt-pack.md # Concrete prompt templates, JSON schemas, & examples
-    +-- 11-technical-architecture-baseline.md # Post-grilling reference architecture (deferred — see §4.7)
+    +-- 11-technical-architecture-baseline.md # Detailed architectural reference (active — monorepo, tRPC, Drizzle, jobs, admin)
+    +-- 12-development-plan.md          # Implementation plan for initial slice (typed formula loading, recommendation/auth/persistence loop)
 ```
 
 ### Migration Record
@@ -132,8 +133,9 @@ Documents are written in sequence based on dependency: a doc is ready when every
 | 16 | L3–07: api-contract.md | L3–01, L3–03, L3–06 | 1 session | Contract needed before frontend–backend integration begins |
 | 16a | L3–09: env-config-spec.md | L3–05 | 1 session | Config setup for local & production deployment |
 | 16b | L3–10: outfit-generation-prompt-pack.md | L3–06, L3–02, L2–02 | 1 session | Prompt templates, JSON schemas, & examples for outfit generation |
+| 16c | L3–12: development-plan.md | L3–01, L3–02, L3–03, L3–05, L3–06, L3–07, L3–09, L3–10, L3–11 | 1 session | Authoritative implementation plan for the MLP build. Consolidates all L3 specs into phased execution with verification gates. Must exist before coding begins. |
 
-**Gate:** L3–01 and L3–03 in `active` before MLP build. L2–03 in `active` before wireframes.
+**Gate:** L3–01 and L3–03 in `active` before MLP build. L3–12 in `active` before coding begins. L2–03 in `active` before wireframes.
 
 ### Phase 4 — Maintenance (Weeks 5+)
 
@@ -151,13 +153,11 @@ Documents are written in sequence based on dependency: a doc is ready when every
 
 **Gate:** All L0 docs in `active` before any external contractor or data collection begins.
 
-### 2.5 Deferred Documents
+### 2.5 L3-11 Activation
 
-**L3–11 (Technical Architecture Baseline)** is registered as `deferred` — a complete post-grilling reference architecture for post-MLP evaluation, NOT the active build baseline. The active architecture baseline is **L3–05 (Tech Stack ADR)**. No writing phase is assigned; the document already exists. Reconsider L3–11 for active adoption when:
+**L3–11 (Technical Architecture Baseline)** was originally registered as `deferred` (post-grilling reference architecture). Following the decision to adopt a monorepo from day 1 — with `web`, `api`, `jobs`, `admin`, shared packages, tRPC, Drizzle, and a Postgres-backed queue — L3-11 was activated as the detailed architecture reference. L3-05 (Tech Stack ADR) and L3-11 together form the complete technical baseline: L3-05 records the decisions, L3-11 documents the implementation architecture that realizes them.
 
-- MLP soft-launch validates the core engagement thesis.
-- L3-05's simplified monolith becomes a measurable bottleneck.
-- Team grows to 3+ engineers.
+No documents are currently deferred in L3.
 
 ---
 
@@ -194,7 +194,8 @@ Each document has exactly one **owner** (writes, maintains, answers questions) a
 | L3–08 analytics-event-schema | Architect | Craftsman + Pathfinder + Hunter | Engineers, data |
 | L3–09 env-config-spec | Architect | Craftsman + Pathfinder | Engineers |
 | L3–10 outfit-generation-prompt-pack | Craftsman | Architect + Pathfinder | Engineers |
-| L3–11 technical-architecture-baseline | Architect | Craftsman + Pathfinder | Engineers (reference), founder (architecture context) |
+| L3–11 technical-architecture-baseline | Architect | Craftsman + Pathfinder | Engineers, founder |
+| L3–12 development-plan | Architect | Craftsman + Pathfinder | Engineers (execution) |
 
 ### Ownership Rules
 
@@ -241,7 +242,7 @@ status: draft | active | review | deprecated | archived | deferred
 - **review → active**: Changes approved. Version bumps (minor for edits, major for structural changes).
 - **review → deprecated**: A newer doc supersedes this one. The deprecated doc field `superseded_by` points to the new doc's ID.
 - **deprecated → archived**: Superseding doc is stable for ≥1 review cycle. Archived docs are read-only.
-- **deferred → active**: Post-MLP scale triggers are met (see §2.5). Owner initiates activation with Pathfinder sign-off.
+- **deferred → active**: Document-specific activation triggers are met. Owner initiates activation with Pathfinder sign-off.
 - **deferred → deprecated**: The deferred architecture direction is abandoned. Owner marks deprecated with rationale.
 
 ### 4.3 Review Cadence
@@ -296,9 +297,8 @@ Each doc ends with a `## Changelog` section:
 
 A document with `status: deferred` is a complete deliverable that serves as reference material only. It is NOT the active baseline and MUST NOT be cited as authoritative. Each deferred doc has:
 - An **active baseline** that remains the source of truth.
-- **Revisit triggers** (specified in §2.5) that govern when it may be reconsidered for active adoption.
+- **Revisit triggers** that govern when it may be reconsidered for active adoption.
 - A **transition path** of `deferred → active` (adopted) or `deferred → deprecated` (abandoned).
-
 ---
 
 ## 5. Section-Level Outlines
@@ -647,7 +647,7 @@ Below is what each document MUST contain. Sections are listed in order. Optional
 
 #### L3–11: technical-architecture-baseline.md
 
-**Purpose:** Post-grilling reference architecture for post-MLP evaluation. Not the active build baseline — L3-05 serves that role.
+**Purpose:** Detailed architecture reference for the monorepo MLP baseline — documents the repo layout, tRPC transport, Drizzle data layer, Postgres queue, admin app, CI/CD, and vendor boundaries. Active baseline complement to L3-05 (ADR decisions).
 
 1. Context: [what changed since L3-05, comparison table]
 2. Repo organization: [monorepo layout: packages/web, api, jobs, admin, shared]
@@ -657,9 +657,7 @@ Below is what each document MUST contain. Sections are listed in order. Optional
 6. AI provider abstraction: [interface seam pulled forward into L3-05]
 7. CI/CD: [automated gates — typecheck, lint, test, build]
 8. Non-goals: [explicitly deferred from active baseline]
-
 ---
-
 ## Appendix: Quick-Reference Cards
 
 ### Status Decision Flow
