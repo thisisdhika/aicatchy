@@ -1,7 +1,7 @@
 import { pgTable, text, varchar, integer, timestamp, jsonb, boolean, pgEnum } from 'drizzle-orm/pg-core';
 
 export const formulaTypeEnum = pgEnum('formula_type', ['basic', 'advanced']);
-export const occasionEnum = pgEnum('occasion', ['casual', 'formal', 'sporty', 'business', 'evening']);
+export const occasionEnum = pgEnum('occasion', ['casual', 'formal', 'sporty', 'business', 'evening', 'hangout', 'date-night', 'kondangan']);
 
 export const profiles = pgTable('profiles', {
   id: varchar('id').primaryKey(),
