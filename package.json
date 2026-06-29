@@ -1,0 +1,21 @@
+{
+  "name": "aicatchy",
+  "version": "0.0.1",
+  "private": true,
+  "packageManager": "pnpm@9.0.0",
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "typecheck": "turbo typecheck",
+    "install-peers": "pnpm install --ignore-scripts"
+  },
+  "pnpm": {
+    "overrides": {
+      "postcss": "^8.4.41"
+    }
+  },
+  "devDependencies": {
+    "turbo": "^2.10.0"
+  }
+}

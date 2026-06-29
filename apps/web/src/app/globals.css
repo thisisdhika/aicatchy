@@ -1,0 +1,40 @@
+/* Tailwind v4 CSS‑first setup */
+@import "tailwindcss";
+
+:root {
+  /* Design tokens from L2‑03 (layer‑2-concierge-ux/03-ux-identity.md)
+     Minimal tokens for Phase 0 — expand in Phase 1. */
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 345 82% 69%; /* coral rose */
+  --primary-foreground: 210 40% 98%;
+  --secondary: 220 13% 91%; /* warm grey 100 */
+  --secondary-foreground: 222.2 84% 4.9%;
+  --muted: 220 13% 96%;
+  --muted-foreground: 215.4 16.3% 46.7%;
+  --accent: 45 93% 58%; /* gold */
+  --accent-foreground: 222.2 84% 4.9%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 220 13% 91%;
+  --input: 220 13% 91%;
+  --ring: 345 82% 69%;
+
+  /* Responsive breakpoints (Tailwind defaults)
+     Mobile‑first approach: no max-width utilities, rely on Tailwind screens. */
+  --radius: 0.5rem;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+/* System font stack per L2‑03 */
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Tailwind components/utilities follow */

@@ -88,14 +88,14 @@ The outfit formula library is stored in the database and administered through th
 - No budget filtering in the MLP. Prices shown as-is from the formula.
 
 **F6 — Outfit Display**
-- Mobile-first: horizontal carousel with visible peeking adjacent cards and page dots on mobile viewports; desktop uses the same layout inside a centered mobile-width container.
+*Mobile-first: horizontal carousel with visible peeking adjacent cards and page dots on mobile viewports; desktop is not a priority surface.*
 - Each card: mood image (product collage), item list with price + link, styling rationale.
 - Card interaction: tap to expand items, tap link to open Shopee or merchant page.
 - Outfits are viewed, saved, shared, and purchased in-session. Swap and budget-adjust are deferred to P1.
 
 **F7 — Purchase Link**
 - Each item links to Shopee or an active Involve Asia merchant page via affiliate link.
-- Link opens in-app browser or native app (deep link).
+- Link opens in the mobile web experience. Deep link attempts to merchant apps are out of scope for V1.
 - Disclosure shown per card (incorporated into card design — see L0-02).
 
 **F8 — Save Look**

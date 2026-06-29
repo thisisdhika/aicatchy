@@ -338,8 +338,8 @@ CI runs on every PR. Post-merge deploy to Vercel preview + production.
 
 | Policy | Decision | Detail |
 |---|---|---|
-| **Mobile-first** | Primary target is mobile web (mobile-first responsive). Desktop is not a priority. | All UI designed for 375px–430px viewport. Desktop gets the same layout at wider breakpoints. |
-| **Desktop gate** | Soft gate — desktop users can access but see mobile-width layout centered on screen (max-width: 480px). | No dedicated desktop experience. Redirect/upsell for desktop: "Scan with your phone for the best experience." |
+| **Mobile-first** | Primary target is mobile web (mobile-first responsive). Desktop is not a priority. | All UI designed for 375px–430px viewport. |
+| **Desktop gate** | Redirect desktop users to the mobile experience. | No dedicated desktop experience. Show a short prompt that the app is optimized for phones. |
 | **Locale** | Indonesian (id) is the primary language. English (en) is secondary for future. | Language detection via Accept-Language header. All content authored in Indonesian first. |
 | **Currency** | IDR only for V1. No multi-currency support. | Affiliate links always priced in IDR. |
 | **Region** | Single-region start (Indonesia). No data residency beyond Singapore Supabase region. | No CDN multi-region. Vercel Edge Network serves globally but origin is fixed Singapore. |

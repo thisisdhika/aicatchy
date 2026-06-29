@@ -1,0 +1,1 @@
+{"root":["./src/index.ts","./src/db/index.ts","./src/db/schema.ts","./src/db/seed.ts","./src/lib/analytics/posthog.ts","./src/trpc/context.ts","./src/trpc/router.ts","./src/trpc/trpc.ts"],"version":"5.9.3"}

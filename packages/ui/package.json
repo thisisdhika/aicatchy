@@ -1,0 +1,42 @@
+{
+  "name": "@ac/ui",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "pnpm@9.0.0",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -b && rollup -c",
+    "lint": "eslint src",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.2.0",
+    "@radix-ui/react-slot": "^1.1.0",
+    "tailwindcss": "^4.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0",
+    "rollup": "^4.21.0",
+    "@rollup/plugin-typescript": "^12.3.0",
+    "eslint": "^8.57.0"
+  },
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "types": "./src/index.d.ts"
+    },
+    "./components/*": {
+      "import": "./src/components/*.ts",
+      "types": "./src/components/*.d.ts"
+    },
+    "./lib/*": {
+      "import": "./src/lib/*.ts", 
+      "types": "./src/lib/*.d.ts"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "jobs",
+  "type": "module",
+  "private": true,
+  "packageManager": "pnpm@9.0.0",
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "build": "tsc -b",
+    "start": "tsx src/index.ts",
+    "lint": "eslint src",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "pg-boss": "^12.0.2",
+    "tsx": "^4.9.0",
+    "@supabase/supabase-js": "^2.45.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0",
+    "@types/node": "^20.0.0",
+    "eslint": "^8.57.0"
+  }
+}

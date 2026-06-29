@@ -179,7 +179,7 @@ Product page renders
 |---------|----------|
 | Mobile browser → Shopee link | Open in in-app browser. Deep link to Shopee app should not be attempted in V1 (requires app presence detection). |
 | Mobile browser → merchant deeplink | Open in in-app browser. Merchant-specific deep linking is handled per campaign. |
-| Desktop browser | Open in new tab. Standard web redirect. No app link. |
+| Desktop browser | Redirect users to the mobile experience. Desktop is not a priority surface. |
 | WhatsApp Web (shared card) | Link opens in default browser when tapped. In-app browser not possible from WhatsApp. |
 
 ### 3.4 Link Freshness

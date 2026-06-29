@@ -1,0 +1,49 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+*.log
+
+# Build outputs
+.DS_Store
+tmp/
+*.local
+dist/
+.next/
+build/
+*.tgz
+
+coverage/
+.nyc_output/
+*.map
+
+# Environment variables
+.env.local
+.env.production
+.env.development
+
+# Logs
+logs/
+*.log
+pnpm-debug.log*
+
+# Runtime data
+pids
+results
+*.pid
+*.seed
+
+# Coverage
+coverage.*
+
+# Build artifacts
+.npm
+dist-ssr
+.turbo/
+*.output
+.*_cache
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+*~

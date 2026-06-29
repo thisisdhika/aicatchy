@@ -205,7 +205,7 @@ The following items are covered by this development plan. Everything else is def
 
 ### Phase 0 — Monorepo Scaffold & Foundation
 
-**Effort:** 1 session (~4 hours)
+**Effort:** 1–2 sessions (~6–8 hours). Phase 0 sets up the full platform surface (monorepo, Supabase project, Drizzle schema + RLS, env templates, PostHog, Vercel CI/CD). This is the single largest under-estimate risk in the plan — budget conservatively.
 **Depends on:** Nothing — start here.
 
 | Step | Task | Deliverable | Verification |
@@ -238,7 +238,7 @@ The following items are covered by this development plan. Everything else is def
 ### Phase 2 — Outfit Generation Engine
 
 **Effort:** 2 sessions (~8 hours)
-**Depends on:** Phase 1 complete. L3-10 prompt templates available.
+**Depends on:** Phase 1 complete. L3-10 prompt templates available. **Note:** The `generation.generate` contract is fully specified by L3-07 — Phase 3 (frontend UI) can start as soon as 2.6 (response shaper) lands, consuming the L3-07 stub. Do not wait for Phase 2 full completion. Overlap these phases to halve wall-clock.
 
 | Step | Task | Deliverable | Verification |
 |------|------|-------------|--------------|
@@ -325,6 +325,15 @@ The following items are covered by this development plan. Everything else is def
 | 7.5 | Write critical-path smoke test: guest flow + auth flow | `test/smoke.spec.ts` — production-adjacent verification | Smoke test runs against staging before each release |
 | 7.6 | Affiliate disclosure review per L0-02 | Disclosure text visible on result page | Legal compliance verified |
 | **Gate** | App is deployable, core journey works end-to-end, analytics visible, error states handled | — | — |
+### Slice Definition of Done
+
+The whole implementation slice is "done" (soft-launchable) when **all three** hold:
+
+1. **End-to-end journey on mobile:** a guest on a 375px viewport can open the app, fill the occasion/vibe/expression/intent form, tap Generate, and see 3 outfit cards (Safe / Stylish / Bolder) with item descriptions, prices, styling rationales, and at least one purchase link — all within 5s P95.
+2. **Earned-auth loop intact:** the guest can save a look (localStorage), see the auth prompt, sign up, and find the saved look in their profile after login. Core funnel (generate → save → signup) is visible in PostHog as sequential, session-stitched events.
+3. **Formula coverage:** at least one formula per occasion type (all 5) returns a valid generation; malformed seed data degrades gracefully (no crash, user-facing error with retry).
+
+Hitting this bar stops iteration and triggers soft-launch prep. Anything beyond it (more formulas, admin UI, affiliate breadth) is post-MLP scope.
 
 ---
 
@@ -448,7 +457,7 @@ The implementation slice is complete when all of the following are satisfied:
 | Q1 | What is the exact seeding strategy for the formula library (how many formulas per occasion)? | Phase 7 expansion | Start with 3 seed formulas; gap-analysis from soft launch determines expansion. |
 | Q2 | Should we pre-warm the LLM model to reduce cold-start latency on first generation? | Phase 2 performance | Bench with and without keep-warm. If P95 >5s, implement periodic health-check request to Vercel function. |
 | Q3 | How do we handle the case where both Shopee and Involve Asia have the same product? | Phase 5 | Prefer Shopee (higher conversion in Indonesia). L3-03 §5 defines priority. |
-| Q4 | Should we build the admin UI for formula management now, or manage through DB seed scripts? | First slice scope | The `admin` package is in the monorepo baseline but out of scope for the first slice. Manage formulas via DB seed scripts (`pnpm --filter api drizzle-kit push` + seed.ts). Build the admin app when non-technical editors need access. |
+| Q4 | ~~Should we build the admin UI for formula management now?~~ | First slice scope | **Decided — keep this closed.** The `admin` package lives in the monorepo baseline (L3-11) but is explicitly out of scope for this first slice (see §4.2 Non-Goals). Manage formulas via DB seed scripts: `pnpm --filter api drizzle-kit push` + a `seed.ts` in `apps/api/src/db`. Build the admin app only when a non-technical editor needs access — do not reopen this for the MLP slice. |
 | Q5 | What is the exact copy for the auth prompt to maximize conversion? | Phase 4 | A/B test "Sign up to save your looks forever" vs "Buat akun untuk menyimpan" (id-ID). Start with Indonesian-first. |
 | Q6 | Do we need a WhatsApp share feature in V1? | L3-01 lists as P0 | Confirm: share intent screen with pre-populated text. Requires native Web Share API or WhatsApp URL scheme. |
 | Q7 | What analytics dashboard setup is needed before launch? | Phase 6 | Minimum: funnel dashboard (generate → save → signup), latency chart, top occasion/vibe combos. |
@@ -497,3 +506,4 @@ In the event that a release introduces a critical defect:
 |------|---------|--------|--------|
 | 2026-06-28 | 1.0 | Initial active version — implementation plan for initial slice | Architect |
 | 2026-06-28 | 1.1 | Aligned with monorepo baseline: updated architecture diagram, tech decisions, Phase 0 scaffold, file paths, non-goals, verification, and references | Architect |
+| 2026-06-28 | 1.2 | Doc cleanup: Phase 0 effort 4h→6–8h (under-estimate risk); Phase 2↔3 parallelization note (L3-07 stub lets Phase 3 start at 2.6); Q4 closed as decided (admin out of scope, seed scripts only); added Slice Definition of Done before §6 | Architect |

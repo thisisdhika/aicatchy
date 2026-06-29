@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/components.json",
+  "name": "ui",
+  "components": [
+    "button",
+    "card"
+  ],
+  "alias": {
+    "@/*": "./src/*"
+  },
+  "tailwind": {
+    "config": "tailwind.config.ts"
+  }
+}

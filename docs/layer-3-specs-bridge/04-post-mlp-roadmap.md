@@ -124,15 +124,17 @@ GO Decision
 
 | Platform | MLP status | P1/V2+ candidate | Dependency | Abandonment trigger |
 |----------|-----------|---------------|------------|---------------------|
-| Web app (responsive) | ✅ Primary | — | — | — |
-| WhatsApp chatbot | Not planned | V2+ candidate | WhatsApp Business API integration | Low engagement on web from WhatsApp-driven traffic |
-| Native Android app | Not planned | V3 candidate | Proven retention + demonstrated mobile web friction | MLP data shows no mobile web abandonment |
-| Native iOS app | Not planned | V3 candidate | Same as Android | Same as Android |
-| Secondary markets (Malaysia, Philippines) | Not planned | V3 candidate | Indonesia market validation + expansion budget | Indonesia unit economics don't translate |
-| Webflow/landing page | Not planned | Month 2 post-MLP | Static site for SEO + acquisition funnel | Not started; low priority |
+ | WhatsApp chatbot | Not planned | V2+ candidate | WhatsApp Business API integration | Low engagement on web from WhatsApp-driven traffic |
 
-**Platform principle:** Stay web-first until mobile web abandonment data forces native. WhatsApp chatbot is the most logical new platform — it meets users where they already decide (WhatsApp groups).
+ | Native Android app | Not planned | V3 candidate | Proven retention + demonstrated mobile web friction | MLP data shows no mobile web abandonment |
 
+ | Native iOS app | Not planned | V3 candidate | Same as Android | Same as Android |
+
+ | Secondary markets (Malaysia, Philippines) | Not planned | V3 candidate | Indonesia market validation + expansion budget | Indonesia unit economics don't translate |
+
+ | Webflow/landing page | Not planned | Month 2 post-MLP | Static site for SEO + acquisition funnel | Not started; low priority |
+
+:**Platform principle:** Stay web-first until mobile web abandonment data forces native. WhatsApp chatbot is the most logical new platform — it meets users where they already decide (WhatsApp groups).
 ---
 
 ## 5. Strategic Bets (Unproven)
@@ -177,3 +179,4 @@ Every P1/V2 candidate and strategic bet has a clear condition under which it is 
 | 2026-06-25 | 1.0 | Updated to align with MLP baseline. Removed accounts, memory, and fit notes from roadmap (now in MLP). Added Swap, Budget, and Wardrobe Modeling as true deferred candidates. | Architect |
 | 2026-06-25 | 0.2 | Governance fix: status→draft, version→0.2 (draft iteration after MLP alignment content update) | Scribe |
 | 2026-06-25 | 1.0 | Activated baseline for MLP build | Architect |
+:**Platform principle:** Stay web-first until mobile web abandonment data forces native. WhatsApp chatbot is the most logical new platform — it meets users where they already decide (WhatsApp groups).
