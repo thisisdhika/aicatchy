@@ -39,6 +39,9 @@ coverage.*
 .npm
 dist-ssr
 .turbo/
+
+# Vercel
+.vercel
 *.output
 .*_cache
 
