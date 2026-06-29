@@ -73,7 +73,7 @@ aicatchy/
 ├── apps/
 │   ├── web/             # Next.js App Router — user-facing mobile web
 │   ├── api/             # tRPC server — transport/orchestration layer
-│   ├── jobs/            # Postgres-backed background worker process
+│   ├── jobs/            # Postgres-backed background worker process (Vercel cron — daily schedule)
 │   └── admin/           # Next.js admin dashboard — merchant & formula ops
 ├── packages/
 │   ├── shared/          # Zod schemas, tRPC router types, branded types
@@ -387,3 +387,4 @@ Target: keep infra cost below $50/mo until product-market fit is validated.
 |---|---|---|---|
 | 2026-06-28 | 1.0 | Frozen baseline from grilling session outcomes | Architect |
 | 2026-06-28 | 1.1 | Activated from deferred status; aligned with L3-05 monorepo baseline; reframed comparison table as baseline summary | Architect |
+| 2026-06-29 | 1.2 | Annotated jobs package with Vercel cron schedule | Architect |

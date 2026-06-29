@@ -217,14 +217,14 @@ interface AIProvider {
 
 ### 2.8 Hosting — Vercel + Supabase Cloud
 
-**Decision:** Vercel (Hobby/Pro tier) for the `web` and `admin` Next.js applications; `api` server on Node.js hosting (Vercel or Railway); `jobs` worker on Railway or Next.js long-running function; Supabase Cloud (Free tier) for database and auth.
+**Decision:** Vercel (Hobby/Pro tier) for the `web` and `admin` Next.js applications; `api` server on Vercel Edge Runtime; `jobs` on Vercel cron (daily `0 0 * * *`, free tier); Supabase Cloud (Free tier) for database and auth.
 
 | Resource | Current (MLP) | Upgrade path |
 |---|---|---|
 | Web (`web` package) | Vercel Hobby (free) | → Vercel Pro ($20/mo) when bandwidth exceeds 100GB/mo |
 | Admin (`admin` package) | Vercel Hobby (same project) | → Separate Vercel project if admin traffic grows |
-| API (`api` package) | Vercel Hobby (Node.js function) or Railway free tier | → Dedicated Node instance if function timeout is a constraint |
-| Jobs (`jobs` package) | Railway free tier or scheduled Vercel function | → Dedicated worker ($5–10/mo) |
+| API (`api` package) | Vercel Hobby (Edge Function) | → Vercel Pro ($20/mo) or dedicated Node instance if function timeout is a constraint |
+| Jobs (`jobs` package) | Vercel cron (daily `0 0 * * *`, free) | → Dedicated worker only if job volume exceeds cron capability |
 | Database + Auth | Supabase Free (500MB DB, 50K MAU) | → Supabase Pro ($25/mo) when exceeding free tier limits |
 | CDN | Vercel Edge Network (global, free) | — |
 | LLM API | OpenAI pay-as-you-go | — |
@@ -232,15 +232,15 @@ interface AIProvider {
 **Rationale:**
 - Vercel + Next.js is the canonical deploy combination for the `web` and `admin` packages — zero configuration.
 - The `api` package is a Node.js tRPC server deployable on any Node.js host. Starting on Vercel as a serverless function keeps initial ops near-zero; moving to a long-running process is trivial if needed.
-- The `jobs` worker is a separate process for background queues (affiliate link refresh, cache warming). A small Railway or similar instance covers MLP needs.
+- The `jobs` worker is a separate process for background queues (affiliate link refresh, cache warming). Vercel cron on the free tier covers MLP needs — no separate host required.
 - Turborepo + pnpm workspaces enable `turbo run build` to build all packages in one command, deployable independently.
-- Total infrastructure cost during MLP: ~$0 (beyond OpenAI API consumption, estimated <$10/mo at 500 sessions). If Railway is needed for jobs, add ~$5/mo.
+- Total infrastructure cost during MLP: ~$0 (beyond OpenAI API consumption, estimated <$10/mo at 500 sessions). Jobs hosting is $0 on Vercel cron free tier.
 
 **Revisit trigger:** (a) Monthly infra cost exceeds $50. (b) Vercel function timeout consistently hit by generation requests — deploy `api` as a long-running Node process. (c) Job volume requires dedicated queue infrastructure (BullMQ + Redis).
 
 ### 2.9 Analytics — PostHog
 
-**Decision:** PostHog (self-hosted on Railway or cloud free tier) for product analytics.
+**Decision:** PostHog cloud free tier for product analytics.
 
 **Events tracked (MLP):**
 - `generation_started`, `generation_completed` — with occasion, vibe length, success/failure.
@@ -357,3 +357,4 @@ For full schema details including Drizzle ORM types, see L3-11 §2.4.
 | 2026-06-25 | 0.1 | Initial draft — MLP tech stack ADR with 9 stack decisions | Architect |
 | 2026-06-25 | 1.0 | Activated baseline for MLP build | Architect |
 | 2026-06-28 | 1.1 | Aligned with monorepo baseline (L3-11): updated executive summary, backend (tRPC), database (Drizzle), hosting, module layout, data model | Architect |
+| 2026-06-29 | 1.2 | Hosting: jobs moved to Vercel cron (daily `0 0 * * *`, free); api on Edge Runtime; removed Railway references; PostHog simplified to cloud free tier | Architect |

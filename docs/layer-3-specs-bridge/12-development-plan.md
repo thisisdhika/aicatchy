@@ -114,7 +114,7 @@ The plan targets a controlled soft launch (20-100 users in Indonesia) within the
 
 - **Monorepo CI:** `turbo run build` from root builds all packages; individual packages deploy independently via Vercel (`web`, `admin`) or Node.js host (`api`, `jobs`)
 - **Web hosting:** Vercel (Hobby tier — sufficient for soft launch)
-- **API hosting:** Vercel Node.js function or Railway free tier
+- **API hosting:** Vercel Node.js function (Edge Runtime)
 - **Database:** Supabase Free tier (500 MB, 50K MAU — scale to Pro at launch)
 - **LLM:** OpenAI API (pay-as-you-go, GPT-4o-mini ~$0.15/1M input tokens)
 - **Domain:** `aicatchy.app` or staging subdomain
@@ -507,3 +507,4 @@ In the event that a release introduces a critical defect:
 | 2026-06-28 | 1.0 | Initial active version — implementation plan for initial slice | Architect |
 | 2026-06-28 | 1.1 | Aligned with monorepo baseline: updated architecture diagram, tech decisions, Phase 0 scaffold, file paths, non-goals, verification, and references | Architect |
 | 2026-06-28 | 1.2 | Doc cleanup: Phase 0 effort 4h→6–8h (under-estimate risk); Phase 2↔3 parallelization note (L3-07 stub lets Phase 3 start at 2.6); Q4 closed as decided (admin out of scope, seed scripts only); added Slice Definition of Done before §6 | Architect |
+| 2026-06-29 | 1.3 | Removed Railway from API hosting — now Vercel Edge Runtime only | Architect |

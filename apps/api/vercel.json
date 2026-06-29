@@ -2,5 +2,11 @@
   "framework": null,
   "buildCommand": "pnpm run build",
   "outputDirectory": ".",
-  "rewrites": [{ "source": "/(.*)", "destination": "/api/index" }]
+  "rewrites": [
+    { "source": "/api/cron", "destination": "/api/cron" },
+    { "source": "/(.*)", "destination": "/api/index" }
+  ],
+  "crons": [
+    { "path": "/api/cron", "schedule": "0 0 * * *" }
+  ]
 }

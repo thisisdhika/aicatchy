@@ -163,7 +163,7 @@ Per UU PDP Pasal 59, cross-border transfers require adequate protection or conse
 | Service | Data sent | Adequacy mechanism |
 |---------|-----------|--------------------|
 | OpenAI / Anthropic API (AI recommendation generation) | Occasion input + vibe + pseudonymized style/fit preferences (no PII like email) | Standard contract clause (SCC) with data processor agreement. Provider on Indonesia's adequate protection registry. |
-| Cloud hosting (Vercel, Railway, Supabase) | User account data, encrypted passwords/tokens, saved looks, preferences | Processor located in data center region (Singapore or US). SCC in place. |
+| Cloud hosting (Vercel, Supabase) | User account data, encrypted passwords/tokens, saved looks, preferences | Processor located in data center region (Singapore or US). SCC in place. |
 | Analytics service (if used) | Aggregated, anonymized usage data | Only after user opt-in consent. |
 
 ### 7.2 What Is NOT Sent Abroad
@@ -199,3 +199,4 @@ Verified items with dates. Review quarterly.
 |------|---------|--------|--------|
 | 2026-06-24 | 1.0 | Initial active version | Steward |
 | 2026-06-25 | 1.1 | Updated for MLP: user accounts, memory, optional fit notes | StewardWritePDPCompliance |
+| 2026-06-29 | 1.2 | Removed Railway from cloud hosting list (cross-border transfer table) | Architect |

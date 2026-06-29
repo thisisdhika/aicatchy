@@ -26,7 +26,7 @@ references: [L1-01]
 |----------|----------------------|---------------------|-------|
 | Salaries / founder draw | 40–80 | $2,500–5,000 | 3–5 people, fully remote Indonesia |
 | AI API costs (OpenAI/Anthropic) | 5–10 | $300–625 | Per-recommendation cost; scales with usage |
-| Hosting & infrastructure | 2–5 | $125–310 | Vercel/Railway, Supabase or DB, CDN |
+| Hosting & infrastructure | 2–5 | $125–310 | Vercel, Supabase or DB, CDN |
 | Tools & SaaS | 2–5 | $125–310 | Design tools, project management, communication |
 | Affiliate commission share | 2–5 | $125–310 | Only after revenue starts; listed for completeness |
 | Marketing (seed) | 3–10 | $185–625 | Initial content production, minimal paid tests |
@@ -188,3 +188,4 @@ Notes: [anything needing attention]
 | Date | Version | Change | Author |
 |------|---------|--------|--------|
 | 2026-06-24 | 1.0 | Initial active version | Steward |
+| 2026-06-29 | 1.1 | Removed Railway from hosting & infrastructure row — now Vercel + Supabase only | Architect |
