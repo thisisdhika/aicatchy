@@ -7,7 +7,6 @@ node_modules/
 .DS_Store
 tmp/
 *.local
-dist/
 .next/
 build/
 *.tgz
@@ -49,4 +48,4 @@ dist-ssr
 *.tmp
 *.swp
 *.swo
-*~
+dist/

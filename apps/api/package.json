@@ -4,9 +4,9 @@
   "packageManager": "pnpm@9.0.0",
   "type": "module",
   "scripts": {
-    "dev": "tsx src/index.ts",
-    "build": "tsc -b",
-    "start": "tsx src/index.ts",
+    "dev": "tsx src/dev.ts",
+    "build": "tsc -b && esbuild src/index.ts --bundle --platform=node --outfile=dist/index.js --external:@hono/node-server --external:tsx",
+    "start": "tsx src/dev.ts",
     "lint": "eslint src",
     "typecheck": "tsc --noEmit",
     "db:generate": "drizzle-kit generate",
@@ -35,7 +35,8 @@
     "@types/node": "^20.0.0",
     "eslint": "^8.57.0",
     "drizzle-kit": "^0.31.10",
-    "@types/pg": "^8.11.6"
+    "@types/pg": "^8.11.6",
+    "esbuild": "^0.25.0"
   },
   "exports": {
     ".": {

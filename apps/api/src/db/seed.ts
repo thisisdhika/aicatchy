@@ -1,5 +1,5 @@
-import { db } from './index';
-import { formulas } from './schema';
+import { db } from './index.js';
+import { formulas } from './schema.js';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';

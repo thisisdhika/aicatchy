@@ -1,0 +1,7 @@
+{
+  "framework": null,
+  "buildCommand": "pnpm run build --filter=api",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/api/index" }
+  ]
+}

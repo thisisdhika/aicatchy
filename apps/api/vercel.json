@@ -1,8 +1,14 @@
 {
-  "buildCommand": "pnpm run build",
-  "outputDirectory": "dist",
   "framework": null,
+  "installCommand": "npm install -g pnpm@9 && cd ../.. && pnpm install",
+  "buildCommand": "cd ../.. && pnpm run build --filter=api",
+  "outputDirectory": ".",
+  "functions": {
+    "dist/index.js": {
+      "runtime": "nodejs20.x"
+    }
+  },
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api" }
+    { "source": "/(.*)", "destination": "/dist/index" }
   ]
 }
