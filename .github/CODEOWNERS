@@ -1,0 +1,11 @@
+# AICatchy — Code Owners
+# Last matching pattern takes precedence.
+
+* @thisisdhika
+
+docs/**/*.md @thisisdhika
+apps/api/src/db/schema.ts @thisisdhika
+apps/api/drizzle/** @thisisdhika
+turbo.json @thisisdhika
+pnpm-workspace.yaml @thisisdhika
+.env.example @thisisdhika

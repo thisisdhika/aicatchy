@@ -1,0 +1,39 @@
+name: Bug Report
+description: Report something broken
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What happened? What did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: 1. Go to... 2. Click... 3. See error
+    validations:
+      required: true
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      options:
+        - Production (aicatchy.com)
+        - Staging
+        - Local dev
+    validations:
+      required: true
+  - type: dropdown
+    id: device
+    attributes:
+      label: Device
+      options:
+        - Mobile (iOS)
+        - Mobile (Android)
+        - Desktop
+    validations:
+      required: true

@@ -1,0 +1,30 @@
+name: Feature Request
+description: Propose a new feature
+title: "[Feature]: "
+labels: ["enhancement", "triage"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What user problem does this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: What should we build?
+  - type: dropdown
+    id: phase
+    attributes:
+      label: Phase
+      description: When should this land?
+      options:
+        - Phase 1 (Core Engine)
+        - Phase 2 (Auth + Save)
+        - Phase 3 (Affiliate)
+        - Phase 4+ (Growth)
+        - Post-MLP
+    validations:
+      required: true
